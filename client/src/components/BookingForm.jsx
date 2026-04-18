@@ -45,7 +45,7 @@ function BookingForm() {
     e.preventDefault()
 
     try {
-      await axios.post("http://localhost:5000/book-test-drive", formData)
+      await axios.post("https://car-dealership-website-server.vercel.app/book-test-drive", formData)
 
       setSuccess("Your test drive request has been submitted successfully.")
 
