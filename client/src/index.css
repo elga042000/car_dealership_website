@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #020617;
+  --bg-mid: #0b1220;
+  --bg-top: #0a0f1f;
+  --accent-blue: rgba(56, 189, 248, 0.22);
+  --accent-violet: rgba(167, 139, 250, 0.2);
+  --accent-cyan: rgba(34, 211, 238, 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+
+  /* Rich layered cinematic background */
+  background:
+    radial-gradient(1200px 700px at 12% -10%, var(--accent-blue), transparent 55%),
+    radial-gradient(900px 600px at 85% 20%, var(--accent-cyan), transparent 58%),
+    radial-gradient(1100px 650px at 50% 115%, var(--accent-violet), transparent 62%),
+    linear-gradient(135deg, var(--bg-base) 0%, var(--bg-mid) 42%, var(--bg-top) 100%);
+  background-attachment: fixed;
+}
+
+/* Global smooth rendering */
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection glow */
+*::selection {
+  background: rgba(59, 130, 246, 0.35);
+  color: white;
+}
+
+/* =========================
+   CINEMATIC GLOW LAYERS
+========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 22% 20%, rgba(59,130,246,0.16), transparent 32%),
+    radial-gradient(circle at 74% 28%, rgba(14,165,233,0.13), transparent 36%),
+    radial-gradient(circle at 48% 84%, rgba(139,92,246,0.14), transparent 34%),
+    linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.02) 40%, transparent 70%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(35deg, transparent 24%, rgba(125,211,252,0.06) 25%, transparent 26%),
+    linear-gradient(-35deg, transparent 24%, rgba(56,189,248,0.05) 25%, transparent 26%);
+  background-size: 120px 120px;
+  opacity: 0.45;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Floating premium light orbs */
+#root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(99,102,241,0.13), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(14,165,233,0.11), transparent 45%);
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================
+   GRID + NOISE LAYER
+========================= */
+
+#root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cpath d='M0 180 Q80 120 160 165 T260 145' stroke='rgba(125,211,252,0.16)' stroke-width='1.2' fill='none'/%3E%3Cpath d='M0 95 Q60 65 120 105 T260 85' stroke='rgba(196,181,253,0.13)' stroke-width='1.1' fill='none'/%3E%3C/svg%3E");
+  background-size: 70px 70px;
+  opacity: 0.33;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================
+   GLOBAL INTERACTIONS
+========================= */
+
+a, button {
+  transition: all 0.25s ease;
+}
+
+a:hover {
+  transform: translateY(-2px);
+}
+
+button:hover {
+  transform: none;
+}
+
+/* =========================
+   GLASS SYSTEM (PREMIUM)
+========================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* =========================
+   PREMIUM BUTTONS
+========================= */
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(37,99,235,0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 15px 35px rgba(37,99,235,0.35);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MODERN BUTTON SYSTEM
+========================= */
+
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.24);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(37, 99, 235, 0.32);
+  filter: brightness(1.04);
+}
+
+.btn-modern:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3), 0 16px 34px rgba(37, 99, 235, 0.32);
+}
+
+.btn-modern-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  color: #e2e8f0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+
+.btn-modern-secondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(125, 211, 252, 0.7);
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.92);
+}
+
+.btn-modern-compact {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+}
+
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+  padding: 12px 20px;
+  border-radius: 14px;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* =========================
+   PREMIUM CARDS
+========================= */
+
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+/* =========================
+   TEXT GRADIENT STYLE
+========================= */
+
+.text-gradient {
+  background: linear-gradient(90deg, #60a5fa, #22d3ee, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   SCROLLBAR (LUXURY)
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #06b6d4);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #60a5fa, #22d3ee);
+}
+
+/* =========================
+   INPUTS (MODERN)
+========================= */
+
+input, textarea, select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: white;
+  border-radius: 14px;
+  padding: 12px 14px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: rgba(59,130,246,0.7);
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
+}
+
+/* Placeholder */
+input::placeholder {
+  color: #94a3b8;
+}
+
+/* =========================
+   FLOAT ANIMATION UTILITY
+========================= */
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
