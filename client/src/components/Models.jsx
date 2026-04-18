@@ -19,10 +19,8 @@ function Models() {
           {/* Header */}
           <div className="text-center mb-12 sm:mb-14 md:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-              Our{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                Models
-              </span>
+              Our Models
+              
             </h2>
 
             <p className="text-slate-400 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
