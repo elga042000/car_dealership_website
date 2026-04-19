@@ -2,6 +2,8 @@
 https://github.com/elga042000/car_dealership_website 
 ## Live Website URL
 https://elga042000-cardealershipwebsite-bhuq40gnh.vercel.app/
+## Loom video
+https://www.loom.com/share/adfe665a6fad48f8a0218fdb433dc4f4
 
 ---
 
